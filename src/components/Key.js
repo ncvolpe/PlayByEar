@@ -26,11 +26,15 @@ class Key extends React.Component {
 
         let key;
         if (noteIsFlat) {
-            key = <div className={keyClassName}></div>;
+            key = (
+                <div className={keyClassName}>
+                    <div className="key-text-half">{this.props.note.toUpperCase()}</div>
+                </div>
+            );
         } else {
             key = (
                 <div className={keyClassName}>
-                    <div className="key-text">{this.props.note.toUpperCase()}</div>
+                    <div className="key-text-natural">{this.props.note.toUpperCase()}</div>
                 </div>
             );
         }
