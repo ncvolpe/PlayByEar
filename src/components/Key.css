@@ -9,7 +9,7 @@
     position: relative;
     color: black;
     font-weight: 600;
-    font-size: 36px;
+    font-size: 30px;
     margin-top: 240px;
     pointer-events: none;
 }
@@ -27,7 +27,7 @@
     position: relative;
     color: white;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 15px;
     margin-top: 100px; /* Adjusted margin-top to move text higher */
     pointer-events: none;
 }

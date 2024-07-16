@@ -1,6 +1,5 @@
 import _ from 'lodash';
 import React from 'react';
-
 import './Key.css';
 import { NOTE_TO_KEY } from '../global/constants';
 
@@ -14,31 +13,24 @@ class Key extends React.Component {
     }
 
     render() {
-        let keyClassName = "key";
-        const noteIsFlat = this.noteIsFlat(this.props.note);
-        const keyIsPressed = this.keyIsPressed(this.props.note, this.props.pressedKeys);
-        if (noteIsFlat) {
-            keyClassName += " flat";
+        const { note, pressedKeys } = this.props;
+        const isFlat = note.includes('b');
+
+        let classNames = 'key';
+        if (isFlat) {
+            classNames += ' flat';
         }
-        if (keyIsPressed) {
-            keyClassName += " pressed";
+        if (this.keyIsPressed(note, pressedKeys)) {
+            classNames += ' pressed';
         }
 
-        let key;
-        if (noteIsFlat) {
-            key = (
-                <div className={keyClassName}>
-                    <div className="key-text-half">{this.props.note.toUpperCase()}</div>
+        return (
+            <div className={classNames}>
+                <div className={isFlat ? 'key-text-half' : 'key-text-natural'}>
+                    {note.toUpperCase()}
                 </div>
-            );
-        } else {
-            key = (
-                <div className={keyClassName}>
-                    <div className="key-text-natural">{this.props.note.toUpperCase()}</div>
-                </div>
-            );
-        }
-        return key;
+            </div>
+        );
     }
 }
 
