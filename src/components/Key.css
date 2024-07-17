@@ -1,36 +1,45 @@
+
 .key {
     background-color: white;
-    height: 300px;
-    width: 60px;
-    border: 2px solid black;
+    height: 200px; /* Adjusted height */
+    width: 40px; /* Adjusted width */
+    border: 1px solid black; /* Adjusted border size */
+    box-sizing: border-box;
+    position: relative; /* Ensure position is relative to align text inside */
 }
 
-.key-text-natural{
-    position: relative;
+.key-text-natural {
+    position: absolute;
     color: black;
     font-weight: 600;
-    font-size: 30px;
-    margin-top: 240px;
+    font-size: 12px; /* Adjusted font size */
+    bottom: 10px; /* Position text at the bottom */
+    left: 50%;
+    transform: translateX(-50%); /* Center text horizontally */
     pointer-events: none;
 }
 
 .key.flat {
-    position: relative;
     background-color: black;
-    margin-left: -17px;
-    margin-right: -17px;
-    height: 200px;
-    width: 30px;
+    height: 130px; /* Adjusted height */
+    width: 30px; /* Adjusted width */
+    margin-left: -15px; /* Adjusted margin to fit better */
+    margin-right: -15px; /* Adjusted margin to fit better */
     z-index: 2;
+    position: relative; /* Ensure position is relative to align text inside */
 }
-.key-text-half{
-    position: relative;
+
+.key-text-half {
+    position: absolute;
     color: white;
     font-weight: 600;
-    font-size: 15px;
-    margin-top: 100px; /* Adjusted margin-top to move text higher */
+    font-size: 10px; /* Adjusted font size */
+    bottom: 10px; /* Position text at the bottom */
+    left: 50%;
+    transform: translateX(-50%); /* Center text horizontally */
     pointer-events: none;
 }
+
 .key.pressed,
 .key.flat.pressed {
     background-color: #00d8ff;
