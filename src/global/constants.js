@@ -1,5 +1,5 @@
-const VALID_BLACK_KEYS = ['s', 'd', 'g', 'h', 'j', 'w', 'e', 't', 'y', 'u', 'r'];
-const VALID_WHITE_KEYS = ['z', 'x', 'c', 'v', 'b', 'n', 'm', 'a', 'q', '2', '3', '5', '6', '7', '4'];
+const VALID_BLACK_KEYS = ['s', 'd', 'g', 'h', 'j', 'w', 'e', 't', 'y', 'u', 'r', 'i', '0', '-', '='];
+const VALID_WHITE_KEYS = ['z', 'x', 'c', 'v', 'b', 'n', 'm', 'a', 'q', '2', '3', '4', '5', '6', '7', '8', '9', 'o', 'p', '[', ']', '\\'];
 const VALID_KEYS = [...VALID_BLACK_KEYS, ...VALID_WHITE_KEYS];
 
 const NOTES = [
