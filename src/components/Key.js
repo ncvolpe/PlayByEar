@@ -1,5 +1,5 @@
-import _ from 'lodash';
 import React from 'react';
+import _ from 'lodash';
 import './Key.css';
 import { NOTE_TO_KEY } from '../global/constants';
 
@@ -10,6 +10,11 @@ class Key extends React.Component {
 
     keyIsPressed = (note, pressedKeys) => {
         return _.includes(pressedKeys, NOTE_TO_KEY[note]);
+    }
+
+    handleClick = () => {
+        const { note, onClick } = this.props;
+        onClick(note);
     }
 
     render() {
@@ -25,7 +30,7 @@ class Key extends React.Component {
         }
 
         return (
-            <div className={classNames}>
+            <div className={classNames} onClick={this.handleClick}>
                 <div className={isFlat ? 'key-text-half' : 'key-text-natural'}>
                     {note.toUpperCase()}
                 </div>

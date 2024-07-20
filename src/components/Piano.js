@@ -2,11 +2,12 @@ import _ from 'lodash';
 import React from 'react';
 
 import './Piano.css';
-import { Key } from './Key.js'
+import { Key } from './Key.js';
 import {
     NOTES,
     VALID_KEYS,
     KEY_TO_NOTE,
+    NOTE_TO_KEY
 } from '../global/constants';
 
 class Piano extends React.Component {
@@ -46,7 +47,24 @@ class Piano extends React.Component {
             pressedKeys: updatedPressedKeys,
         });
     }
-    
+
+    handleClick = (note) => {
+        const key = NOTE_TO_KEY[note];
+        const updatedPressedKeys = [...this.state.pressedKeys];
+        if (!updatedPressedKeys.includes(key)) {
+            updatedPressedKeys.push(key);
+        }
+        this.setState({
+            pressedKeys: updatedPressedKeys,
+        });
+        this.playNote(note);
+
+        setTimeout(() => {
+            this.setState({
+                pressedKeys: this.state.pressedKeys.filter(k => k !== key),
+            });
+        }, 200); // adjust this timeout to match the visual feedback duration
+    }
 
     componentDidMount = () => {
         window.addEventListener('keydown', this.handleKeyDown);
@@ -60,6 +78,7 @@ class Piano extends React.Component {
                     key={index}
                     note={note}
                     pressedKeys={this.state.pressedKeys}
+                    onClick={this.handleClick}
                 />
             );
         });
